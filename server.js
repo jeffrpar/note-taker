@@ -3,6 +3,9 @@ const fs = require("fs");
 const path = require("path");
 const express = require("express");
 
+// Set Port
+const PORT = process.env.PORT || 3001;
+
 // Creates new app with express
 const app = express();
 
@@ -13,5 +16,10 @@ app.get("/", (req, res) =>
 
 // Get route for notes.html
 app.get("/notes", (req, res) =>
-  res.sendFile(path.join(__dirname, "Develop/public/notes.html"))
+  res.sendFile(path.join(__dirname, "public/notes.html"))
+);
+
+// listen on local server
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
